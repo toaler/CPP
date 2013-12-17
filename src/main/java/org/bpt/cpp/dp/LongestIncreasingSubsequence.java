@@ -11,7 +11,10 @@ package org.bpt.cpp.dp;
 public class LongestIncreasingSubsequence {
 
 	/**
-	 * Given a array of integers returns int[] containing the longest increasing sub sequence.
+	 * Given a array of integers returns int[] containing the longest increasing
+	 * sub sequence. Runtime of this solution is O(N^2). This is not the optimal
+	 * solution.
+	 * 
 	 * @param sequence
 	 * @return int[] of longest increasing sub sequence
 	 */
