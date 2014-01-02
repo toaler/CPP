@@ -7,6 +7,10 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
 
+/**
+ * Solution to 272 - TEX Quotes, see {@linktourl http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=208} 
+ * for full details
+ */
 class TexQuotes {
 	public static void main(String[] args) throws Exception {
 		mainWork(System.in, System.out);
