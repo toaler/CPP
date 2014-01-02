@@ -1,4 +1,4 @@
-package org.bpt.cpp.adhoc;
+package org.bpt.cpp.easy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
