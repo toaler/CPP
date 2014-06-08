@@ -15,15 +15,14 @@ public class CelebrityJeopardyTest extends TestCase {
 				"Y = 3\n" +
 				"X=9\n";
 		
+		
+		InputStream is = new ByteArrayInputStream(in.getBytes());
+		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
-		CelebrityJeopardy.mainWork(toInputStream(in), ps);
+		CelebrityJeopardy.mainWork(is, ps);
 		
 		assertEquals(in, baos.toString()); 
 	}
 
-	public static InputStream toInputStream(String input) {
-		byte[] bytes = input.getBytes();
-		return new ByteArrayInputStream(bytes);
-	}
 }
