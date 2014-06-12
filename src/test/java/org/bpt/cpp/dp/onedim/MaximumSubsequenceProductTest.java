@@ -1,4 +1,4 @@
-package org.bpt.cpp.dp;
+package org.bpt.cpp.dp.onedim;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
