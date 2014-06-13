@@ -7,8 +7,8 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
- * 
- * @author btoal
+ * Solution to 108 - Maximum Sum, see {@linktourl http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=44} 
+ * for full details
  *
  */
 public class MaximumSum {
