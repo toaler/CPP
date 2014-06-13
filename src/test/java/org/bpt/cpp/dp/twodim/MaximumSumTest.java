@@ -12,9 +12,10 @@ import junit.framework.TestCase;
 public class MaximumSumTest extends TestCase {
 	public void testInput() throws IOException {
 		String in = 
-				"2\n" + 
-				"12 -4\n" + 
-				"-10 4\n";
+				"4\n" +
+			    "0 -2 -7  0 9  2 -6  2\n" +
+                "-4  1 -4  1 -1\n" +
+                "8  0 -2\n";
 		
 		InputStreamReader isr = new InputStreamReader(new ByteArrayInputStream(in.getBytes()));
 		
@@ -24,9 +25,7 @@ public class MaximumSumTest extends TestCase {
 		MaximumSum.mainWork(new BufferedReader(isr), ps);
 		
 		String out =
-				"The maximum winning streak is 13.\n" +
-		        "Losing streak.\n" +
-		        "The maximum winning streak is 26.\n";
+				"15\n";
 		
 		assertEquals(out, baos.toString()); 
 	}
