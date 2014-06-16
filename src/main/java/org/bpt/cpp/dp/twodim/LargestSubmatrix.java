@@ -23,24 +23,27 @@ public class LargestSubmatrix {
 		Scanner scanner = new Scanner(is);
 		try {
 			StringBuilder sb = new StringBuilder();
-			
+
 			int cases = scanner.nextInt();
-			scanner.nextLine();
-
-			do {
+			if (cases > 0) {
 				scanner.nextLine();
-				sb.append(findMax(generateAggregates(scanner))).append("\n");
-				cases--;
-			} while (cases > 0);
 
-			os.append(sb);
+				do {
+					scanner.nextLine();
+					sb.append(findMax(generateAggregates(scanner)))
+							.append("\n");
+					cases--;
+				} while (cases > 0);
+
+				os.append(sb);
+			}
 		} finally {
 			scanner.close();
 			is.close();
 		}
 	}
 
-	private static int findMax(int[][] agg) {
+	public static int findMax(int[][] agg) {
 		int i;
 		int max = 0;
 
@@ -82,7 +85,7 @@ public class LargestSubmatrix {
 					prev = agg[i - 1][j];
 				}
 
-				curr += line.charAt(j) == '1' ? 1 : 0;
+				curr += line.charAt(j) == '1' ? 1 : Integer.MIN_VALUE;
 				agg[i][j] = curr + prev;
 			}
 			
