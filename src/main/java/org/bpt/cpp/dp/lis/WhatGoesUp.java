@@ -39,7 +39,6 @@ public class WhatGoesUp {
 
 			ps.append(sb);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
