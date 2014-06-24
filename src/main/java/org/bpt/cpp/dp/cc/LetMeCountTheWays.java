@@ -5,15 +5,21 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+/**
+ * Solution to 357 - 'Let Me Count The Ways', see {@linktourl http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=293} for full
+ * details
+ */
 public class LetMeCountTheWays {
 	static final int MAX_VALUE = 30000;
 	static final int[] denom = { 1, 5, 10, 25, 50 };
-	static final int[][] memor = new int[denom.length][MAX_VALUE];
-	
+	static final long[] ways = new long[MAX_VALUE + 1];
+
 	static {
+		ways[0] = 1;
+
 		for (int i = 0; i < denom.length; i++) {
-			for (int j = 0; j < MAX_VALUE; j++) {
-				memor[i][j] = Integer.MIN_VALUE;
+			for (int j = denom[i]; j < ways.length; j++) {
+				ways[j] += ways[j - denom[i]];
 			}
 		}
 	}
@@ -28,12 +34,11 @@ public class LetMeCountTheWays {
 
 			while (scanner.hasNext()) {
 				int value = scanner.nextInt();
+				long distinct = ways[value];
 
-				int ways = ways(0, value);
-
-				ps.append(ways > 1 ? "There are " : "There is only ");
-				ps.append(String.valueOf(ways));
-				ps.append(ways > 1 ? " ways " : " way ");
+				ps.append(distinct > 1 ? "There are " : "There is only ");
+				ps.append(String.valueOf(distinct));
+				ps.append(distinct > 1 ? " ways " : " way ");
 				ps.append("to produce ").append(String.valueOf(value))
 						.append(" cents change.").append("\n");
 			}
@@ -45,22 +50,8 @@ public class LetMeCountTheWays {
 		}
 	}
 
-	private static int ways(int type, int value) {
-		if (value == 0)
-			return 1;
-		if (value < 0 || type == denom.length)
-			return 0;
-
-		int ways = memor[type][value];
-		
-		if (ways != Integer.MIN_VALUE) {
-			return ways;
-		}
-		
-		return memor[type][value] = ways(type + 1, value) + ways(type, value - denom[type]);
-	}
-	
 	public static void main(String args[]) {
-		mainWork(new BufferedReader(new InputStreamReader(System.in)), System.out);
+		mainWork(new BufferedReader(new InputStreamReader(System.in)),
+				System.out);
 	}
 }

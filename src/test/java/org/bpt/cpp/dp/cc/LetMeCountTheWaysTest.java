@@ -28,6 +28,6 @@ public class LetMeCountTheWaysTest extends TestCase {
 				"There are 4 ways to produce 11 cents change.\n" +
 				"There is only 1 way to produce 4 cents change.\n";
 		
-		assertEquals(out, baos.toString()); 
+		assertEquals(out, baos.toString());
 	}
 }
