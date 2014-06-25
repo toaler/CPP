@@ -32,7 +32,7 @@ public class Dollars {
 			sb = new StringBuffer();
 
 			while (scanner.hasNext()) {
-				int value = ((int)(scanner.nextDouble() * 100));
+				int value = ((int)(Math.round(scanner.nextDouble() * 100)));
 
 				if (value == 0) 
 					break;
