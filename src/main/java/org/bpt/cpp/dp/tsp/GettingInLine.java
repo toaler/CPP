@@ -55,8 +55,25 @@ public class GettingInLine {
 				StringBuilder sb = new StringBuilder();
 				sb.append("**********************************************************").append("\n");
 				sb.append("Network #").append(id++).append("\n");
+				
+				int parent[][] = new int[distance.length][1 << distance.length];
+				
+				double min = tsp(0, 1, parent);
+
+				
+				int best = 0;
+				int bitmask = 1 << best;
+
+				for (int i = 0; i < parent.length - 1; i++) {
+					int adj = parent[best][bitmask];
+
+					sb.append(String.format("Cable requirement to connect (%d,%d) to (%d,%d) is %.2f feet.\n", nodes.get(best).x, nodes.get(best).y, nodes.get(adj).x, nodes.get(adj).y, nodes.get(adj).distance(nodes.get(best))));
+				     bitmask |= 1 << adj;
+		              best = adj;
+				}
+				
 				sb.append("Number of feet of cable required is ")
-						.append(String.format("%.2f", tsp(0, 1))).append(".\n");
+				.append(String.format("%.2f", min)).append(".\n");
 				ps.append(sb);
 
 				cnt = scanner.nextInt();
@@ -67,7 +84,7 @@ public class GettingInLine {
 		}
 	}
 
-	private static double tsp(int currentNode, int visitedNodes) {
+	private static double tsp(int currentNode, int visitedNodes, int parent[][]) {
 		if (visitedNodes == (1 << distance.length) - 1) {
 			return 0;
 		}
@@ -79,10 +96,12 @@ public class GettingInLine {
 		double min = Double.MAX_VALUE;
 		for (int next = 0; next < distance.length; next++) {
 			if (next != currentNode && ((visitedNodes & (1 << next)) == 0)) {
-				min = Math.min(
-						min,
-						distance[currentNode][next]
-								+ tsp(next, visitedNodes | (1 << next)));
+				double d = distance[currentNode][next] + tsp(next, visitedNodes | (1 << next), parent);
+				
+				if (d < min) {
+					min = d;
+					parent[currentNode][visitedNodes] = next;
+				}
 			}
 		}
 
@@ -108,5 +127,5 @@ public class GettingInLine {
 			return "{" + x + ", " + y + "}";
 		}
 	}
-
+	
 }
