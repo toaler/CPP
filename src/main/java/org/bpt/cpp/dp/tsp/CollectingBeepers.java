@@ -1,6 +1,7 @@
 package org.bpt.cpp.dp.tsp;
 
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,11 @@ import java.util.Scanner;
 public class CollectingBeepers {
 	private static int[][] memorizer;
 	private static int[][] distance;
+	
+	public static void main(String[] args) throws Exception {
+		mainWork(new BufferedReader(new InputStreamReader(System.in)),
+				System.out);
+	}
 
 	public static void mainWork(BufferedReader reader, PrintStream ps) {
 		Scanner scanner = new Scanner(reader);
