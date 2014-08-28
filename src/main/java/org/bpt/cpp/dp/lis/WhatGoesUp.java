@@ -12,10 +12,10 @@ public class WhatGoesUp {
 	public static void mainWork(BufferedReader reader, PrintStream ps) {
 
 		String line;
-		StringBuffer sb;
+		StringBuilder sb;
 
 		try {
-			sb = new StringBuffer();
+			sb = new StringBuilder();
 			List<Integer> nums = new ArrayList<Integer>();
 
 			while ((line = reader.readLine()) != null) {

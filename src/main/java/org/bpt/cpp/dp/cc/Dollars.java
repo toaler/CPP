@@ -26,10 +26,10 @@ public class Dollars {
 
 	public static void mainWork(BufferedReader reader, PrintStream ps) {
 		Scanner scanner = new Scanner(reader);
-		StringBuffer sb;
+		StringBuilder sb;
 
 		try {
-			sb = new StringBuffer();
+			sb = new StringBuilder();
 
 			while (scanner.hasNext()) {
 				int value = ((int)(Math.round(scanner.nextDouble() * 100)));
