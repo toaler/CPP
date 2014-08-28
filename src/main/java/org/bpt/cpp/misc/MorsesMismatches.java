@@ -102,7 +102,6 @@ public class MorsesMismatches {
 			}
 			
 			public boolean isPrefix(String morse, String potential) {
-				System.out.println(String.format("morse=%s potential=%s", morse, potential));
 				return potential.startsWith(morse);
 			}
 
@@ -111,7 +110,6 @@ public class MorsesMismatches {
 			}
 
 			protected boolean foundOptimal() {
-				System.out.println(String.format("distance=%s best=%s word=%s", distance, bestPossibleLength, word));
 				if (!((distance == bestPossibleLength) && (word != null))) {
 					return true;
 				} 
@@ -129,7 +127,6 @@ public class MorsesMismatches {
 			private void tryUpdate(String match, int distance) {
 				if (match != null) {
 					if (word == null) {
-						System.out.println(String.format("updated match=%s distance=%d", match, distance));
 						word = match;
 						this.distance = distance;
 					} else {
