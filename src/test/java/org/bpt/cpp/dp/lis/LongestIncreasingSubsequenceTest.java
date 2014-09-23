@@ -1,4 +1,4 @@
-package org.bpt.cpp.dp;
+package org.bpt.cpp.dp.lis;
 
 import static org.junit.Assert.*;
 
@@ -21,7 +21,7 @@ public class LongestIncreasingSubsequenceTest {
 	public void sequence2() {
 		int[] sequence =  {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};	
 		int[] expectedSubsequence = {0, 2, 6, 9, 11, 15};
-		
+
 		int[] r = LongestIncreasingSubsequence.lis(sequence);
 		
 		assertEquals(expectedSubsequence.length, r.length);

@@ -1,4 +1,4 @@
-package org.bpt.cpp.dp;
+package org.bpt.cpp.dp.lis;
 
 /**
  * Given a sequence s[0..n−1], a subsequence is retrieved by picking any subset
