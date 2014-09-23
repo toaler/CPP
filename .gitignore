@@ -1,4 +1,8 @@
 target
+out
 .settings/*
 .classpath
 .project
+.idea
+*.swp
+*.iml
