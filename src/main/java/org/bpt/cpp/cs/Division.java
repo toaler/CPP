@@ -10,16 +10,15 @@ import java.util.Scanner;
  * Solution to 725 - Division, see {@linktourl http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=666}
  * for full details
  */
-public class FiveDigitPairs {
+public class Division {
 	public static void main(String args[]) {
 		mainWork(new BufferedReader(new InputStreamReader(System.in)), System.out);
 	}
 
 	public static void mainWork(BufferedReader reader, PrintStream ps) {
-		Scanner scanner = new Scanner(reader);
 		StringBuilder sb;
 
-		try {
+		try (Scanner scanner = new Scanner(reader)) {
 			sb = new StringBuilder();
 		
 			int n = 0;
@@ -33,12 +32,14 @@ public class FiveDigitPairs {
 
 			ps.append(sb);
 		} catch (Exception e) {
-			scanner.close();
+			throw e;
 		}
 	}
 
 	private static CharSequence findPairs(StringBuilder sb, int num) {
-		for (int denominator = 01234; denominator < (98765 / num); denominator++) {
+		boolean found = false;
+		
+		for (int denominator = 1234; denominator <= (98765 / num); denominator++) {
 			int numerator = denominator * num;
 			int used = 0;
 			int n = numerator;
@@ -53,11 +54,12 @@ public class FiveDigitPairs {
 			
 			if (used == 0b1111111111) {
 				sb.append(String.format("%05d / %05d = %d\n", numerator, denominator, num));
+				found = true;
 			}
 			
 		}
 
-		if (sb.length() == 0) {
+		if (!found) {
 			sb.append("There are no solutions for ").append(num).append(".\n");
 		}
 		
