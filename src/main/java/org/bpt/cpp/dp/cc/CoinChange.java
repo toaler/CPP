@@ -11,7 +11,6 @@ import java.util.Stack;
  * Solution to 674 - Coin Change, see {@linktourl http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=615} 
  * for full details
  */
-
 public class CoinChange {
 	static final int MAX_VALUE = 10000;
 	static final int[] denom = { 1, 5, 10, 25, 50 };
