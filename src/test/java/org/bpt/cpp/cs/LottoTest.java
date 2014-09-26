@@ -1,5 +1,4 @@
-package org.bpt.cpp.greedy;
-
+package org.bpt.cpp.cs;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
