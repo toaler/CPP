@@ -1,1 +1,17 @@
 language: java
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "u8CrKgB+eKM/9wiOTNn9L6pjcMUU5xQc5aOBLBdeHDC65iKWIPM5tlsm1GV0UZbz9b2JFCeFl3/VB8kO0zAG6uXWFnkNIutD3rIJ/D4wRKnqQ8xCOLgkFYTxIANeK6tTOIF9WlqKRPmTQLSu5TKe3cVkLJK5HYo13rOqVzX73NVECI1q+7Sz1EX/Ig+OMQTyXobnfNQ9qc8L2amWLGHy6CnbraRQzuClNKhg/f92T+MLncsDzevtiVMoH7SOSuM4jN5/Kl/X2OlwwtcGTSpBBZMXvojjOx8Mz6dcWJ4ubGccitFW43kFOjMNjUjv/dNjGD3OAX3s0r4hA14946XCKFs3bqp0TcirFKuRyqrfzsSvOUuuU70OOxtSu/9WL8HIhcr26BUIdqRFdkNHcVdHggOHsOqIUg0bCvo1sBGLYH+haNEtW7vGQLuYjGCcgH1mmVu1DhQL6tRirtNhlwaxXzzOpLx6wtCnEfV8PN9pwU9kRTlpY359ldB5LRSzAtxsluY5nb9FtdouZH99J0+uU1n4CFUYhVLp7HHQWgqJ8adj6UhDAfxeCI35iOpqTnTOfRR9Xj/NZwlpSoJPNni36rjeW3AsN9eQEMfHy5+7Ls91B59WNZzCFM21LPuWzp1ftwWhD8S/Km2mltPW1wX6UZLpi1zIwxxh9yfxxYjNCBY="
+
+addons:
+  coverity_scan:
+    project:
+      name: "toaler/CPP"
+      description: "Build submitted via Travis CI"
+    notification_email: brian.toal@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
